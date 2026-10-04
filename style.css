@@ -1,3 +1,4 @@
+
 * { 
     box-sizing: border-box; 
 }
@@ -55,12 +56,32 @@ header {
     font-size: 18px;
     color: #fff;
     white-space: nowrap;
+    position: relative;
+}
+
+.main-nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background-color: #00E5FF;
+    transition: width 0.3s ease;
+}
+
+.main-nav ul li a:hover::after {
+    width: 100%;
 }
 
 .search-link {
     display: flex;
     align-items: center;
     gap: 6px;
+}
+
+.search-link:hover .search-icon {
+    animation: pulse 1s infinite;
 }
 
 .search-icon { 
@@ -79,6 +100,11 @@ header {
     width: 27px;
     height: 27px;
     cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.header-icons img:hover {
+    transform: scale(1.15) rotate(5deg);
 }
 
 /* ================= LAYOUT ================= */
@@ -127,6 +153,7 @@ header {
 
 .sidebar-list li a:hover { 
     text-decoration: underline; 
+    color: #1a6fa8;
 }
 
 .sidebar-changes { 
@@ -216,6 +243,7 @@ header {
     justify-content: center;
     padding: 30px 40px;
     gap: 16px;
+    animation: fadeInText 1s ease-out;
 }
 
 .hero-logo-text {
@@ -267,7 +295,7 @@ header {
 
 .btn:hover { 
     opacity: 0.9; 
-    transform: translateY(-2px);
+    transform: translateY(-3px);
 }
 
 /* ================= POPULAR ================= */
@@ -310,11 +338,11 @@ header {
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.3s;
+    transition: transform 0.4s ease;
 }
 
 .popular-card:hover .card-img-wrap img {
-    transform: scale(1.05);
+    transform: scale(1.08);
 }
 
 .card-arrow {
@@ -330,10 +358,12 @@ header {
     align-items: center;
     justify-content: center;
     border-radius: 4px;
+    transition: background 0.3s, transform 0.3s;
 }
 
 .card-arrow:hover {
     background: rgba(0,0,0,0.7);
+    transform: translateX(4px);
 }
 
 .card-name {
@@ -473,6 +503,31 @@ footer {
 
 .footer-nav ul li a:hover { 
     text-decoration: underline; 
+}
+
+/* ================= АНИМАЦИИ ================= */
+
+@keyframes fadeInText {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 /* Адаптив */
