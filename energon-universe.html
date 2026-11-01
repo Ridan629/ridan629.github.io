@@ -4,81 +4,149 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Energon Universe | Allspark Database</title>
+    <meta name="description" content="Energon Universe — общая вселенная комиксов Skybound Entertainment по свойствам Hasbro: Transformers, G.I. Joe, M.A.S.K., Void Rivals и другие.">
+    <meta name="theme-color" content="#0F2A44">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Energon Universe | Allspark Database">
+    <meta property="og:description" content="Общая вселенная комиксов Skybound Entertainment по свойствам Hasbro.">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231B4F7A'/%3E%3Ctext x='16' y='23' font-size='20' font-weight='700' text-anchor='middle' fill='%2300E5FF' font-family='serif'%3EA%3C/text%3E%3C/svg%3E">
+
+    <script>
+        (function () {
+            var d = document.documentElement, t;
+            d.classList.add('js');
+            try { t = localStorage.getItem('theme'); } catch (e) {}
+            if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            d.dataset.theme = t;
+        })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Trirong:wght@700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Trirong:wght@700&family=Roboto&display=swap" rel="stylesheet">
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=112325908', 'ym');
+
+        ym(112325908, 'init', {ssr:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/112325908" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
 </head>
 <body>
 
-    <header>
-        <div class="logo">Allspark Database</div>
-        <nav class="main-nav">
-            <ul>
-                <li><a href="index.html">ГЛАВНАЯ</a></li>
-                <li><a href="#">ВСЕЛЕННЫЕ</a></li>
-                <li><a href="#">ИГРУШКИ</a></li>
-                <li><a href="#">КОМИКСЫ</a></li>
-                <li>
-                    <a href="#" class="search-link">
-                        ПОИСК
-                        <img src="Group.png" alt="поиск" class="search-icon">
-                    </a>
-                </li>
-            </ul>
-        </nav>
-        <div class="header-icons">
-            <img src="material-symbols_login.png" alt="войти">
-            <img src="akar-icons_discord-fill.png" alt="discord">
-            <img src="line-md_bluesky-filled.png" alt="bluesky">
-            <img src="line-md_twitter-x.png" alt="twitter">
-            <img src="mdi_gmail.png" alt="gmail">
+    <div class="read-progress" aria-hidden="true"></div>
+    <a class="skip-link" href="#main">К содержимому</a>
+
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="logo" href="index.html">Allspark Database</a>
+
+            <nav class="main-nav" id="main-nav" aria-label="Основное меню">
+                <ul>
+                    <li><a href="index.html">ГЛАВНАЯ</a></li>
+                    <li><a href="#">ВСЕЛЕННЫЕ</a></li>
+                    <li><a href="#">ИГРУШКИ</a></li>
+                    <li><a href="#">КОМИКСЫ</a></li>
+                    <li>
+                        <button type="button" class="nav-search" data-search-open>
+                            ПОИСК
+                            <img src="Group.png" alt="" class="search-icon">
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <div class="socials">
+                    <a class="icon-link" href="#" aria-label="Discord"><img src="akar-icons_discord-fill.png" alt=""></a>
+                    <a class="icon-link" href="#" aria-label="Bluesky"><img src="line-md_bluesky-filled.png" alt=""></a>
+                    <a class="icon-link" href="#" aria-label="Twitter / X"><img src="line-md_twitter-x.png" alt=""></a>
+                    <a class="icon-link" href="#" aria-label="Почта"><img src="mdi_gmail.png" alt=""></a>
+                </div>
+                <a class="icon-link" href="#" aria-label="Войти"><img src="material-symbols_login.png" alt=""></a>
+                <button type="button" class="icon-btn theme-toggle" data-theme-toggle aria-label="Переключить тему"></button>
+                <button type="button" class="icon-btn nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="main-nav" aria-label="Открыть меню">
+                    <span class="burger" aria-hidden="true"></span>
+                </button>
+            </div>
         </div>
     </header>
 
-    <div class="page-wrapper">
+    <div class="layout">
 
         <aside class="sidebar">
-            <form class="search-form" action="#">
-                <input type="search" name="q" placeholder="Поиск по вики">
-                <button type="submit">Найти</button>
-            </form>
+            <div class="sidebar-inner">
+                <nav class="sidebar-section" aria-label="Категории">
+                    <h2 class="sidebar-title">КАТЕГОРИИ</h2>
+                    <p class="sidebar-group">ВСЕЛЕННЫЕ</p>
+                    <ul class="sidebar-list">
+                        <li><a href="#">Фильмы</a></li>
+                        <li><a href="#">Мультсериалы</a></li>
+                        <li><a href="#">Комиксы</a></li>
+                        <li><a href="#">Игрушки</a></li>
+                        <li><a href="#">Видеоигры</a></li>
+                        <li><a href="#">Книги</a></li>
+                    </ul>
+                    <p class="sidebar-group">ЭНЦИКЛОПЕДИЯ</p>
+                    <ul class="sidebar-list">
+                        <li><a href="#">Персонажи</a></li>
+                        <li><a href="#">Фракции</a></li>
+                        <li><a href="#">Локации</a></li>
+                        <li><a href="#">События</a></li>
+                    </ul>
+                </nav>
 
-            <div class="sidebar-section">
-                <h3 class="sidebar-title">КАТЕГОРИИ</h3>
-                <ul class="sidebar-list">
-                    <li class="sidebar-group">ВСЕЛЕННЫЕ</li>
-                    <li><a href="#">Фильмы</a></li>
-                    <li><a href="#">Мультсериалы</a></li>
-                    <li><a href="#">Комиксы</a></li>
-                    <li><a href="#">Игрушки</a></li>
-                    <li><a href="#">Видеоигры</a></li>
-                    <li><a href="#">Книги</a></li>
-                    <li><a href="#">Персонажи</a></li>
-                    <li><a href="#">Фракции</a></li>
-                    <li><a href="#">Локации</a></li>
-                    <li><a href="#">События</a></li>
-                </ul>
-            </div>
-            <div class="sidebar-section">
-                <h3 class="sidebar-title">ПОСЛЕДНИЕ<br>ИЗМЕНЕНИЯ</h3>
-                <ul class="sidebar-changes">
-                    <li><a href="energon-universe.html">Energon Universe</a> <span>(Сегодня)</span></li>
-                    <li><a href="#">Какая-то статья</a> <span>(Вчера)</span></li>
-                </ul>
+                <section class="sidebar-section">
+                    <h2 class="sidebar-title">ПОСЛЕДНИЕ<br>ИЗМЕНЕНИЯ</h2>
+                    <ul class="sidebar-changes">
+                        <li><a href="energon-universe.html" aria-current="page">Energon Universe</a> <span class="when">Сегодня</span></li>
+                        <li><a href="#">Какая-то статья</a> <span class="when">Вчера</span></li>
+                    </ul>
+                </section>
             </div>
         </aside>
 
-        <main class="main-content article-page">
+        <main id="main" class="content article-page">
+
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <ol>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="#">Комиксы</a></li>
+                    <li aria-current="page">Energon Universe</li>
+                </ol>
+            </nav>
 
             <article class="article">
 
-                <h1 class="article-title">Energon Universe</h1>
+                <header class="article-header">
+                    <h1 class="article-title">Energon Universe</h1>
+                </header>
 
-                <img src="energonuniverse.jpg" alt="Energon Universe" class="article-hero-image">
+                <img src="energonuniverse.jpg" alt="Energon Universe" class="article-hero-image" fetchpriority="high">
 
-                <div class="article-content">
-                    <p><strong>Energon Universe</strong> (Вселенная Энергона) — это общая вселенная, в рамках которой Skybound Entertainment выпускает комиксы по лицензированным свойствам компании Hasbro. Запущенная в 2023 году, на данный момент она включает основную серию Transformers, серию комиксов G.I. Joe, серию M.A.S.K., а также оригинальную серию Void Rivals.</p>
+                <div class="article-body">
 
-                    <h2>Задействованные франшизы</h2>
+                    <nav class="toc" aria-label="Содержание">
+                        <h2 class="toc-title">Содержание</h2>
+                        <ol>
+                            <li><a href="#franchises">Задействованные франшизы</a></li>
+                            <li><a href="#limited">Ограниченные серии</a></li>
+                            <li><a href="#specials">Специальные выпуски</a></li>
+                            <li><a href="#oneshots">Одноразовые выпуски</a></li>
+                        </ol>
+                    </nav>
+
+                    <p class="lead"><strong>Energon Universe</strong> (Вселенная Энергона) — это общая вселенная, в рамках которой Skybound Entertainment выпускает комиксы по лицензированным свойствам компании Hasbro. Запущенная в 2023 году, на данный момент она включает основную серию Transformers, серию комиксов G.I. Joe, серию M.A.S.K., а также оригинальную серию Void Rivals.</p>
+
+                    <h2 id="franchises">Задействованные франшизы</h2>
                     <ul>
                         <li>Void Rivals (оригинальная серия)</li>
                         <li>Transformers</li>
@@ -88,7 +156,7 @@
                         <li>Micronauts</li>
                     </ul>
 
-                    <h2>Ограниченные серии (Limited series)</h2>
+                    <h2 id="limited">Ограниченные серии (Limited series)</h2>
                     <ul>
                         <li>Duke</li>
                         <li>Cobra Commander</li>
@@ -96,45 +164,71 @@
                         <li>Destro</li>
                     </ul>
 
-                    <h2>Специальные выпуски (Specials)</h2>
+                    <h2 id="specials">Специальные выпуски (Specials)</h2>
                     <ul>
                         <li>Energon Universe 2024 Special</li>
                         <li>Energon Universe 2025 Special</li>
                         <li>Energon Universe 2026 Special</li>
                     </ul>
 
-                    <h2>Одноразовые выпуски (One-shots)</h2>
+                    <h2 id="oneshots">Одноразовые выпуски (One-shots)</h2>
                     <ul>
                         <li>M.A.S.K. Origins</li>
                         <li>ROM</li>
                     </ul>
                 </div>
 
-                <div class="infobox">
-                    <h3>Energon Universe</h3>
-                    <table>
-                        <tr><td>Издатель</td><td>Skybound Entertainment</td></tr>
-                        <tr><td>Год запуска</td><td>2023</td></tr>
-                        <tr><td>Статус</td><td>Активна</td></tr>
-                        <tr><td>Куратор</td><td>Роберт Киркман</td></tr>
-                    </table>
-                </div>
+                <aside class="infobox" aria-label="Краткая информация">
+                    <h2 class="infobox-title">Energon Universe</h2>
+                    <dl>
+                        <div class="infobox-row"><dt>Издатель</dt><dd>Skybound Entertainment</dd></div>
+                        <div class="infobox-row"><dt>Год запуска</dt><dd>2023</dd></div>
+                        <div class="infobox-row"><dt>Статус</dt><dd><span class="status">Активна</span></dd></div>
+                        <div class="infobox-row"><dt>Куратор</dt><dd>Роберт Киркман</dd></div>
+                    </dl>
+                </aside>
+
+                <footer class="article-footer">
+                    <span class="article-footer-label">Категории:</span>
+                    <a class="tag-link" href="#">Комиксы</a>
+                    <a class="tag-link" href="#">Вселенные</a>
+                    <a class="tag-link" href="#">Hasbro</a>
+                </footer>
 
             </article>
 
         </main>
     </div>
 
-    <footer>
-        <p>© 2024 Allspark Database.</p>
-        <nav class="footer-nav">
-            <ul>
-                <li><a href="#">О вики</a></li>
-                <li><a href="#">Политика конфиденциальности</a></li>
-                <li><a href="#">Предупреждения</a></li>
-            </ul>
-        </nav>
+    <footer class="site-footer" id="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <a class="logo" href="index.html">Allspark Database</a>
+                <p>Неофициальная вики о Трансформерах.</p>
+            </div>
+
+            <nav class="footer-nav" aria-label="О проекте">
+                <ul>
+                    <li><a href="#">О вики</a></li>
+                    <li><a href="#">Политика конфиденциальности</a></li>
+                    <li><a href="#">Предупреждения</a></li>
+                </ul>
+            </nav>
+
+            <div class="footer-socials">
+                <a class="icon-link" href="#" aria-label="Discord"><img src="akar-icons_discord-fill.png" alt=""></a>
+                <a class="icon-link" href="#" aria-label="Bluesky"><img src="line-md_bluesky-filled.png" alt=""></a>
+                <a class="icon-link" href="#" aria-label="Twitter / X"><img src="line-md_twitter-x.png" alt=""></a>
+                <a class="icon-link" href="#" aria-label="Почта"><img src="mdi_gmail.png" alt=""></a>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© <span data-year>2024</span> Allspark Database.</p>
+                <p class="footer-legal">Transformers и связанные названия — торговые марки Hasbro. Проект неофициальный и не связан с Hasbro.</p>
+            </div>
+        </div>
     </footer>
 
+    <script src="script.js" defer></script>
 </body>
 </html>
