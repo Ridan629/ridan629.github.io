@@ -9,7 +9,7 @@
     --font-main: 'Roboto', sans-serif;
 }
 
-- { 
+* { 
     box-sizing: border-box; 
 }
 
@@ -118,7 +118,7 @@ header {
     transform: scale(1.15) rotate(5deg);
 }
 
-/* ================= LAYOUT (Grid для каркаса) ================= */
+/* ================= LAYOUT (Grid-сетка для вики) ================= */
 
 .page-wrapper {
     display: grid;
@@ -307,7 +307,7 @@ header {
     transform: translateY(-3px);
 }
 
-/* ================= POPULAR (Grid-сетка) ================= */
+/* ================= POPULAR (Grid-сетка карточек) ================= */
 
 .popular {
     margin-top: 32px;
@@ -384,71 +384,93 @@ header {
     letter-spacing: 0.5px;
 }
 
-/* ================= ФОРМА ОБРАТНОЙ СВЯЗИ / ПРЕДЛОЖЕНИЯ СТАТЬИ ================= */
+/* ================= ARTICLE PAGE (для страниц статей) ================= */
 
-.contribution-section {
-    margin-top: 40px;
-    background: var(--bg-light);
-    border: 1px solid var(--border-color);
-    padding: 30px;
-    border-radius: 6px;
+.article-page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px 40px 40px;
 }
 
-.contribution-section h3 {
+.article {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 40px;
+}
+
+.article-title {
     font-family: var(--font-heading);
+    font-size: 42px;
+    line-height: 1.1;
     color: var(--primary-color);
-    font-size: 24px;
-    margin-bottom: 20px;
+    margin: 0 0 10px 0;
+    grid-column: 1 / -1;
 }
 
-.wiki-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+.article-hero-image {
+    width: 100%;
+    max-height: 420px;
+    object-fit: cover;
+    border-radius: 6px;
+    grid-column: 1 / -1;
+    margin-bottom: 30px;
 }
 
-.form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+.article-content {
+    font-size: 17px;
+    line-height: 1.75;
+    color: #222;
 }
 
-.form-group label {
+.article-content h2 {
+    font-size: 26px;
+    color: var(--primary-color);
+    margin: 35px 0 16px 0;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 8px;
+}
+
+.article-content ul {
+    padding-left: 20px;
+    margin: 16px 0;
+}
+
+.article-content li {
+    margin-bottom: 10px;
+}
+
+.infobox {
+    background: var(--bg-light);
+    border: 2px solid var(--primary-color);
+    border-radius: 6px;
+    padding: 18px;
+    height: fit-content;
+    position: sticky;
+    top: 20px;
+}
+
+.infobox h3 {
+    margin: 0 0 16px 0;
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 21px;
+}
+
+.infobox table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+}
+
+.infobox td {
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.infobox td:first-child {
     font-weight: 700;
-    font-size: 14px;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-    padding: 10px;
-    font: inherit;
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-    background: #fff;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-    border-color: var(--primary-color);
-    outline: none;
-}
-
-.form-submit-btn {
-    width: 200px;
-    padding: 12px;
-    background: var(--primary-color);
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: opacity 0.2s;
-}
-
-.form-submit-btn:hover {
-    opacity: 0.9;
+    color: #333;
+    width: 45%;
 }
 
 /* ================= FOOTER ================= */
@@ -504,16 +526,24 @@ footer {
     100% { transform: scale(1); }
 }
 
-/* ================= АДАПТИВНОСТЬ (Media Queries) ================= */
+/* ================= АДАПТИВНОСТЬ ================= */
 
 @media (max-width: 900px) {
     .page-wrapper {
-        grid-template-columns: 1fr; /* На планшетах и телефонах сайдбар уходит наверх/скрывается в поток */
+        grid-template-columns: 1fr;
     }
     
     .sidebar {
         border-right: none;
         border-bottom: 1px solid var(--border-color);
+    }
+
+    .article {
+        grid-template-columns: 1fr;
+    }
+
+    .infobox {
+        position: static;
     }
 
     .hero {
