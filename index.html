@@ -51,8 +51,8 @@
     <div class="page-wrapper">
 
         <aside class="sidebar">
-            <form class="search-form" action="#" method="get" role="search">
-                <input type="search" name="q" placeholder="Поиск по вики" aria-label="Поиск по вики">
+            <form class="search-form" action="#">
+                <input type="search" name="q" placeholder="Поиск по вики">
                 <button type="submit">Найти</button>
             </form>
 
@@ -92,9 +92,9 @@
                 <div class="hero-text">
                     <div class="hero-logo-text">ALLSPARK DATABASE</div>
                     <p>
-                        Allspark Database — это неофициальная вики<br>
-                        о Трансформерах,<br>
-                        которая будет постепенно охватывать все уголки<br>
+                        Allspark Database — это неофициальная вики
+                        о Трансформерах,
+                        которая будет постепенно охватывать все уголки
                         франшизы!
                     </p>
 
@@ -107,7 +107,7 @@
             </section>
 
             <section class="popular">
-                <h2 class="popular-title">ПОПУЛЯРНОЕ</h2>
+                <h2 class="section-title">ПОПУЛЯРНОЕ</h2>
                 <div class="popular-grid">
 
                     <div class="popular-card">
@@ -146,38 +146,38 @@
             </section>
 
             <section class="contact">
-                <h2 class="popular-title">Предложить статью</h2>
+                <h2 class="section-title">ПРЕДЛОЖИТЬ СТАТЬЮ</h2>
 
-                <form class="form" action="#" method="post">
+                <form class="form" action="thanks.html">
                     <div class="form-field">
                         <label for="name">Имя</label>
-                        <input type="text" id="name" name="name" placeholder="Ваше имя" required>
+                        <input type="text" name="name" id="name" placeholder="Ваше имя" required>
                     </div>
 
                     <div class="form-field">
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                        <input type="email" name="email" id="email" placeholder="you@example.com" required>
                     </div>
 
                     <div class="form-field form-full">
                         <label for="category">Категория</label>
-                        <select id="category" name="category">
-                            <option value="movies">Фильмы</option>
-                            <option value="cartoons">Мультсериалы</option>
-                            <option value="comics">Комиксы</option>
-                            <option value="toys">Игрушки</option>
-                            <option value="games">Видеоигры</option>
-                            <option value="other">Другое</option>
+                        <select name="category" id="category">
+                            <option>Фильмы</option>
+                            <option>Мультсериалы</option>
+                            <option>Комиксы</option>
+                            <option>Игрушки</option>
+                            <option>Видеоигры</option>
+                            <option>Другое</option>
                         </select>
                     </div>
 
                     <div class="form-field form-full">
                         <label for="message">О чём статья?</label>
-                        <textarea id="message" name="message" placeholder="Расскажите, что стоит добавить на вики" required></textarea>
+                        <textarea name="message" id="message" placeholder="Расскажите, что добавить на вики" required></textarea>
                     </div>
 
-                    <div class="form-field form-full form-check">
-                        <input type="checkbox" id="agree" name="agree" required>
+                    <div class="form-check form-full">
+                        <input type="checkbox" name="agree" id="agree" required>
                         <label for="agree">Я согласен с политикой конфиденциальности</label>
                     </div>
 
@@ -189,9 +189,7 @@
     </div>
 
     <footer>
-        <div class="footer-left">
-            <p>© 2024 Allspark Database.</p>
-        </div>
+        <p>© 2024 Allspark Database.</p>
         <nav class="footer-nav">
             <ul>
                 <li><a href="#">О вики</a></li>
