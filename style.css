@@ -1,13 +1,9 @@
-/* Переменные проекта */
 :root {
-    --primary-gradient: linear-gradient(180.88deg, #1B4F7A 0.76%, #0F2A44 99.24%);
-    --primary-color: #1a6fa8;
+    --primary-blue: #1a6fa8;
+    --header-gradient: linear-gradient(180.88deg, #1B4F7A 0.76%, #0F2A44 99.24%);
     --accent-cyan: #00E5FF;
-    --text-dark: #1a1a1a;
     --text-main: #333333;
-    --border-color: #cccccc;
-    --font-heading: 'Trirong', serif;
-    --font-main: 'Roboto', sans-serif;
+    --border-color: #ccc;
 }
 
 * { 
@@ -16,10 +12,9 @@
 
 body {
     margin: 0;
-    font-family: var(--font-main);
+    font-family: 'Roboto', sans-serif;
     background: #fff;
     line-height: 1.6;
-    color: var(--text-main);
 }
 
 a { 
@@ -37,14 +32,14 @@ ul {
 
 header {
     height: 72px;
-    background: var(--primary-gradient);
+    background: var(--header-gradient);
     display: flex;
     align-items: center;
     padding: 0 40px;
 }
 
 .logo {
-    font-family: var(--font-heading);
+    font-family: 'Trirong', serif;
     font-weight: 700;
     font-size: 28px;
     white-space: nowrap;
@@ -165,7 +160,7 @@ header {
 
 .sidebar-list li a:hover { 
     text-decoration: underline; 
-    color: var(--primary-color);
+    color: var(--primary-blue);
 }
 
 .sidebar-changes { 
@@ -179,7 +174,7 @@ header {
 }
 
 .sidebar-changes li a { 
-    color: var(--primary-color); 
+    color: var(--primary-blue); 
 }
 
 .sidebar-changes li a:hover { 
@@ -259,10 +254,10 @@ header {
 }
 
 .hero-logo-text {
-    font-family: var(--font-heading);
+    font-family: 'Trirong', serif;
     font-weight: 700;
     font-size: 32px;
-    color: var(--primary-color);
+    color: var(--primary-blue);
     letter-spacing: 3px;
 }
 
@@ -287,7 +282,7 @@ header {
     align-items: center;
     justify-content: center;
     font-size: 14px;
-    font-family: var(--font-main);
+    font-family: 'Roboto', sans-serif;
     border-radius: 4px;
     cursor: pointer;
     transition: all 0.2s;
@@ -310,17 +305,17 @@ header {
     transform: translateY(-3px);
 }
 
-/* ================= POPULAR (Grid-сетка по заданию) ================= */
+/* ================= POPULAR (Используем Grid-сетку по заданию модуля) ================= */
 
 .popular {
     margin-top: 32px;
 }
 
 .popular-title {
-    font-family: var(--font-main);
+    font-family: 'Roboto', sans-serif;
     font-weight: 700;
     font-size: 20px;
-    color: var(--text-dark);
+    color: #1a1a1a;
     margin: 0 0 16px 0;
     text-transform: uppercase;
 }
@@ -379,10 +374,10 @@ header {
 }
 
 .card-name {
-    font-family: var(--font-main);
+    font-family: 'Roboto', sans-serif;
     font-weight: 700;
     font-size: 14px;
-    color: var(--text-dark);
+    color: #1a1a1a;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
@@ -391,7 +386,7 @@ header {
 
 footer {
     height: 72px;
-    background: var(--primary-gradient);
+    background: var(--header-gradient);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -440,7 +435,7 @@ footer {
     100% { transform: scale(1); }
 }
 
-/* ================= АДАПТИВНОСТЬ (Media Queries) ================= */
+/* ================= АДАПТИВНОСТЬ ================= */
 
 @media (max-width: 900px) {
     .page-wrapper {
