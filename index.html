@@ -1,26 +1,81 @@
-<section class="contribution-section">
-    <h3>Предложить правку или статью</h3>
-    <form class="wiki-form" action="https://echo.htmlacademy.ru/" method="post">
-        <div class="form-group">
-            <label for="username">Ваше имя или никнейм</label>
-            <input type="text" id="username" name="username" placeholder="Например, OptimusFan" required>
-        </div>
-        
-        <div class="form-group">
-            <label for="category">Раздел вики</label>
-            <select id="category" name="category">
-                <option value="universes">Вселенные</option>
-                <option value="toys">Игрушки</option>
-                <option value="comics">Комиксы</option>
-                <option value="characters">Персонажи</option>
-            </select>
-        </div>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allspark Database</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Trirong:wght@700&family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
 
-        <div class="form-group">
-            <label for="material-desc">Описание или текст статьи</label>
-            <textarea id="material-desc" name="description" rows="5" placeholder="Поделитесь новой информацией..." required></textarea>
-        </div>
+    <header>
+        <div class="logo">Allspark Database</div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">ГЛАВНАЯ</a></li>
+                <li><a href="#">ВСЕЛЕННЫЕ</a></li>
+                <li><a href="#">ИГРУШКИ</a></li>
+                <li><a href="#">КОМИКСЫ</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        <button type="submit" class="form-submit-btn">Отправить на модерацию</button>
-    </form>
-</section>
+    <div class="page-wrapper">
+        <aside class="sidebar">
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">КАТЕГОРИИ</h3>
+                <ul class="sidebar-list">
+                    <li class="sidebar-group">ВСЕЛЕННЫЕ</li>
+                    <li><a href="#">Фильмы</a></li>
+                    <li><a href="#">Мультсериалы</a></li>
+                    <li><a href="#">Комиксы</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <section class="hero">
+                <div class="hero-text">
+                    <div class="hero-logo-text">ALLSPARK DATABASE</div>
+                    <p>Allspark Database — это неофициальная вики о Трансформерах.</p>
+                </div>
+            </section>
+
+            <!-- Секция с формой (аккуратно интегрированная в вики) -->
+            <section class="contribution-section" style="margin-top: 40px; background: #f8f9fa; border: 1px solid #ccc; padding: 30px; border-radius: 6px;">
+                <h3 style="color: #1a6fa8; margin-bottom: 20px;">Предложить правку или статью</h3>
+                <form class="wiki-form" action="https://echo.htmlacademy.ru/" method="post" style="display: flex; flex-direction: column; gap: 15px;">
+                    <div style="display: flex; flex-direction: column; gap: 5px;">
+                        <label for="username">Ваше имя или никнейм</label>
+                        <input type="text" id="username" name="username" placeholder="Например, OptimusFan" style="padding: 8px; border: 1px solid #ccc; border-radius: 4px;" required>
+                    </div>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 5px;">
+                        <label for="category">Раздел вики</label>
+                        <select id="category" name="category" style="padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+                            <option value="universes">Вселенные</option>
+                            <option value="toys">Игрушки</option>
+                            <option value="comics">Комиксы</option>
+                        </select>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; gap: 5px;">
+                        <label for="material-desc">Описание или текст статьи</label>
+                        <textarea id="material-desc" name="description" rows="4" placeholder="Поделитесь новой информацией..." style="padding: 8px; border: 1px solid #ccc; border-radius: 4px;" required></textarea>
+                    </div>
+
+                    <button type="submit" style="width: 200px; padding: 10px; background: #1a6fa8; color: #fff; border: none; border-radius: 4px; cursor: pointer;">Отправить на модерацию</button>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <div class="footer-left">
+            <p>© 2024 Allspark Database.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
