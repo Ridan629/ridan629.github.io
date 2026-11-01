@@ -3,10 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Allspark Database</title>
+    <title>Allspark Database — неофициальная вики о Трансформерах</title>
+    <meta name="description" content="Allspark Database — неофициальная вики о Трансформерах: вселенные, фильмы, комиксы, игрушки и персонажи.">
+    <meta name="theme-color" content="#0F2A44">
     <meta name="yandex-verification" content="25b6e416a163d4c0" />
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Allspark Database">
+    <meta property="og:description" content="Неофициальная вики о Трансформерах.">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231B4F7A'/%3E%3Ctext x='16' y='23' font-size='20' font-weight='700' text-anchor='middle' fill='%2300E5FF' font-family='serif'%3EA%3C/text%3E%3C/svg%3E">
+
+    <!-- Тема применяется до отрисовки, чтобы не было мигания -->
+    <script>
+        (function () {
+            var d = document.documentElement, t;
+            d.classList.add('js');
+            try { t = localStorage.getItem('theme'); } catch (e) {}
+            if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            d.dataset.theme = t;
+        })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Trirong:wght@700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Trirong:wght@700&family=Roboto&display=swap" rel="stylesheet">
+
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
         (function(m,e,t,r,i,k,a){
@@ -23,181 +44,245 @@
 </head>
 <body>
 
-    <header>
-        <div class="logo">Allspark Database</div>
-        <nav class="main-nav">
-            <ul>
-                <li><a href="index.html">ГЛАВНАЯ</a></li>
-                <li><a href="#">ВСЕЛЕННЫЕ</a></li>
-                <li><a href="#">ИГРУШКИ</a></li>
-                <li><a href="#">КОМИКСЫ</a></li>
-                <li>
-                    <a href="#" class="search-link">
-                        ПОИСК
-                        <img src="Group.png" alt="поиск" class="search-icon">
-                    </a>
-                </li>
-            </ul>
-        </nav>
-        <div class="header-icons">
-            <img src="material-symbols_login.png" alt="войти">
-            <img src="akar-icons_discord-fill.png" alt="discord">
-            <img src="line-md_bluesky-filled.png" alt="bluesky">
-            <img src="line-md_twitter-x.png" alt="twitter">
-            <img src="mdi_gmail.png" alt="gmail">
+    <a class="skip-link" href="#main">К содержимому</a>
+
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="logo" href="index.html">Allspark Database</a>
+
+            <nav class="main-nav" id="main-nav" aria-label="Основное меню">
+                <ul>
+                    <li><a href="index.html" aria-current="page">ГЛАВНАЯ</a></li>
+                    <li><a href="#">ВСЕЛЕННЫЕ</a></li>
+                    <li><a href="#">ИГРУШКИ</a></li>
+                    <li><a href="#">КОМИКСЫ</a></li>
+                    <li>
+                        <button type="button" class="nav-search" data-search-open>
+                            ПОИСК
+                            <img src="Group.png" alt="" class="search-icon">
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <!-- Замените href="#" на реальные ссылки на ваши соцсети -->
+                <div class="socials">
+                    <a class="icon-link" href="#" aria-label="Discord"><img src="akar-icons_discord-fill.png" alt=""></a>
+                    <a class="icon-link" href="#" aria-label="Bluesky"><img src="line-md_bluesky-filled.png" alt=""></a>
+                    <a class="icon-link" href="#" aria-label="Twitter / X"><img src="line-md_twitter-x.png" alt=""></a>
+                    <a class="icon-link" href="#" aria-label="Почта"><img src="mdi_gmail.png" alt=""></a>
+                </div>
+                <a class="icon-link" href="#" aria-label="Войти"><img src="material-symbols_login.png" alt=""></a>
+                <button type="button" class="icon-btn theme-toggle" data-theme-toggle aria-label="Переключить тему"></button>
+                <button type="button" class="icon-btn nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="main-nav" aria-label="Открыть меню">
+                    <span class="burger" aria-hidden="true"></span>
+                </button>
+            </div>
         </div>
     </header>
 
-    <div class="page-wrapper">
+    <div class="layout">
 
         <aside class="sidebar">
-            <form class="search-form" action="#">
-                <input type="search" name="q" placeholder="Поиск по вики">
-                <button type="submit">Найти</button>
-            </form>
+            <div class="sidebar-inner">
+                <nav class="sidebar-section" aria-label="Категории">
+                    <h2 class="sidebar-title">КАТЕГОРИИ</h2>
+                    <p class="sidebar-group">ВСЕЛЕННЫЕ</p>
+                    <ul class="sidebar-list">
+                        <li><a href="#">Фильмы</a></li>
+                        <li><a href="#">Мультсериалы</a></li>
+                        <li><a href="#">Комиксы</a></li>
+                        <li><a href="#">Игрушки</a></li>
+                        <li><a href="#">Видеоигры</a></li>
+                        <li><a href="#">Книги</a></li>
+                    </ul>
+                    <p class="sidebar-group">ЭНЦИКЛОПЕДИЯ</p>
+                    <ul class="sidebar-list">
+                        <li><a href="#">Персонажи</a></li>
+                        <li><a href="#">Фракции</a></li>
+                        <li><a href="#">Локации</a></li>
+                        <li><a href="#">События</a></li>
+                    </ul>
+                </nav>
 
-            <div class="sidebar-section">
-                <h3 class="sidebar-title">КАТЕГОРИИ</h3>
-                <ul class="sidebar-list">
-                    <li class="sidebar-group">ВСЕЛЕННЫЕ</li>
-                    <li><a href="#">Фильмы</a></li>
-                    <li><a href="#">Мультсериалы</a></li>
-                    <li><a href="#">Комиксы</a></li>
-                    <li><a href="#">Игрушки</a></li>
-                    <li><a href="#">Видеоигры</a></li>
-                    <li><a href="#">Книги</a></li>
-                    <li><a href="#">Персонажи</a></li>
-                    <li><a href="#">Фракции</a></li>
-                    <li><a href="#">Локации</a></li>
-                    <li><a href="#">События</a></li>
-                </ul>
-            </div>
-            <div class="sidebar-section">
-                <h3 class="sidebar-title">ПОСЛЕДНИЕ<br>ИЗМЕНЕНИЯ</h3>
-                <ul class="sidebar-changes">
-                    <li><a href="energon-universe.html">Energon Universe</a> <span>(Сегодня)</span></li>
-                    <li><a href="#">Какая-то статья</a> <span>(Вчера)</span></li>
-                </ul>
+                <section class="sidebar-section">
+                    <h2 class="sidebar-title">ПОСЛЕДНИЕ<br>ИЗМЕНЕНИЯ</h2>
+                    <ul class="sidebar-changes">
+                        <li><a href="energon-universe.html">Energon Universe</a> <span class="when">Сегодня</span></li>
+                        <li><a href="#">Какая-то статья</a> <span class="when">Вчера</span></li>
+                    </ul>
+                </section>
             </div>
         </aside>
 
-        <main class="main-content">
+        <main id="main" class="content">
 
             <section class="hero">
-                <img src="Rectangle128.png" alt="" class="hero-bg">
+                <img src="Rectangle128.png" alt="" class="hero-bg" fetchpriority="high">
                 <img src="optimus.png" alt="" class="hero-optimus-back">
                 <img src="Rectangle137.png" alt="" class="hero-rectangle">
                 <img src="optimus1.png" alt="" class="hero-optimus-front">
 
                 <div class="hero-text">
-                    <div class="hero-logo-text">ALLSPARK DATABASE</div>
+                    <h1 class="hero-title">ALLSPARK DATABASE</h1>
                     <p>
-                        Allspark Database — это неофициальная вики
-                        о Трансформерах,
-                        которая будет постепенно охватывать все уголки
-                        франшизы!
+                        Allspark Database — это неофициальная вики о Трансформерах,
+                        которая будет постепенно охватывать все уголки франшизы!
                     </p>
-
                     <div class="hero-buttons">
                         <a href="#" class="btn btn-filled">Читать статьи</a>
-                        <a href="#" class="btn btn-outline">Помочь проекту</a>
+                        <a href="#suggest" class="btn btn-outline">Помочь проекту</a>
                         <a href="energon-universe.html" class="btn btn-outline">Случайная статья</a>
                     </div>
                 </div>
             </section>
 
-            <section class="popular">
-                <h2 class="section-title">ПОПУЛЯРНОЕ</h2>
+            <section class="popular" aria-labelledby="popular-title">
+                <h2 class="section-title" id="popular-title">ПОПУЛЯРНОЕ</h2>
                 <div class="popular-grid">
 
-                    <div class="popular-card">
-                        <div class="card-img-wrap">
-                            <img src="Rectangle130.png" alt="Transformers One">
-                            <a href="#" class="card-arrow">→</a>
+                    <a href="#" class="popular-card is-soon reveal" style="--i:0">
+                        <div class="card-media">
+                            <img src="Rectangle130.png" alt="Transformers One" loading="lazy">
+                            <span class="badge">Скоро</span>
+                            <span class="card-arrow" aria-hidden="true">→</span>
                         </div>
                         <div class="card-name">TRANSFORMERS ONE</div>
-                    </div>
+                    </a>
 
-                    <div class="popular-card">
-                        <div class="card-img-wrap">
-                            <img src="Rectangle131.png" alt="Energon Universe">
-                            <a href="energon-universe.html" class="card-arrow">→</a>
+                    <a href="energon-universe.html" class="popular-card reveal" style="--i:1">
+                        <div class="card-media">
+                            <img src="Rectangle131.png" alt="Energon Universe" loading="lazy">
+                            <span class="card-arrow" aria-hidden="true">→</span>
                         </div>
                         <div class="card-name">ENERGON UNIVERSE</div>
-                    </div>
+                    </a>
 
-                    <div class="popular-card">
-                        <div class="card-img-wrap">
-                            <img src="Rectangle132.png" alt="Age of the Primes">
-                            <a href="#" class="card-arrow">→</a>
+                    <a href="#" class="popular-card is-soon reveal" style="--i:2">
+                        <div class="card-media">
+                            <img src="Rectangle132.png" alt="Age of the Primes" loading="lazy">
+                            <span class="badge">Скоро</span>
+                            <span class="card-arrow" aria-hidden="true">→</span>
                         </div>
                         <div class="card-name">AGE OF THE PRIMES</div>
-                    </div>
+                    </a>
 
-                    <div class="popular-card">
-                        <div class="card-img-wrap">
-                            <img src="Rectangle133.png" alt="Cyberworld">
-                            <a href="#" class="card-arrow">→</a>
+                    <a href="#" class="popular-card is-soon reveal" style="--i:3">
+                        <div class="card-media">
+                            <img src="Rectangle133.png" alt="Cyberworld" loading="lazy">
+                            <span class="badge">Скоро</span>
+                            <span class="card-arrow" aria-hidden="true">→</span>
                         </div>
                         <div class="card-name">CYBERWORLD</div>
-                    </div>
+                    </a>
 
                 </div>
             </section>
 
-            <section class="contact">
-                <h2 class="section-title">ПРЕДЛОЖИТЬ СТАТЬЮ</h2>
+            <section class="contact reveal" id="suggest" aria-labelledby="suggest-title">
+                <div class="contact-intro">
+                    <h2 class="section-title" id="suggest-title">ПРЕДЛОЖИТЬ СТАТЬЮ</h2>
+                    <p>Не нашли нужную тему или заметили ошибку? Расскажите нам — вики растёт благодаря читателям.</p>
+                    <ul class="check-list">
+                        <li>Предложите тему для новой статьи</li>
+                        <li>Дополните или поправьте существующую</li>
+                        <li>Мы читаем каждое сообщение</li>
+                    </ul>
+                </div>
 
                 <form class="form" action="thanks.html">
                     <div class="form-field">
-                        <label for="name">Имя</label>
-                        <input type="text" name="name" id="name" placeholder="Ваше имя" required>
+                        <label for="name">Имя *</label>
+                        <input class="control" type="text" name="name" id="name" placeholder="Ваше имя" autocomplete="name" required>
                     </div>
 
                     <div class="form-field">
-                        <label for="email">Email</label>
-                        <input type="email" name="email" id="email" placeholder="you@example.com" required>
+                        <label for="email">Email *</label>
+                        <input class="control" type="email" name="email" id="email" placeholder="you@example.com" autocomplete="email" required>
                     </div>
+
+                    <fieldset class="choice-group form-full">
+                        <legend>Что вы предлагаете?</legend>
+                        <label class="choice">
+                            <input type="radio" name="type" value="Новая статья" checked>
+                            <span>Новая статья</span>
+                        </label>
+                        <label class="choice">
+                            <input type="radio" name="type" value="Дополнение к статье">
+                            <span>Дополнение</span>
+                        </label>
+                        <label class="choice">
+                            <input type="radio" name="type" value="Исправление ошибки">
+                            <span>Исправление</span>
+                        </label>
+                    </fieldset>
 
                     <div class="form-field form-full">
                         <label for="category">Категория</label>
-                        <select name="category" id="category">
+                        <select class="control" name="category" id="category">
                             <option>Фильмы</option>
                             <option>Мультсериалы</option>
                             <option>Комиксы</option>
                             <option>Игрушки</option>
                             <option>Видеоигры</option>
+                            <option>Книги</option>
                             <option>Другое</option>
                         </select>
                     </div>
 
                     <div class="form-field form-full">
-                        <label for="message">О чём статья?</label>
-                        <textarea name="message" id="message" placeholder="Расскажите, что добавить на вики" required></textarea>
+                        <div class="label-row">
+                            <label for="message">О чём статья? *</label>
+                            <span class="counter" data-counter-for="message">0 / 1000</span>
+                        </div>
+                        <textarea class="control" name="message" id="message" maxlength="1000" placeholder="Расскажите, что стоит добавить на вики" required></textarea>
                     </div>
 
                     <div class="form-check form-full">
                         <input type="checkbox" name="agree" id="agree" required>
-                        <label for="agree">Я согласен с политикой конфиденциальности</label>
+                        <label for="agree">Я согласен с <a href="#">политикой конфиденциальности</a> *</label>
                     </div>
 
-                    <button type="submit" class="btn btn-filled">Отправить</button>
+                    <div class="form-actions form-full">
+                        <button type="submit" class="btn btn-filled">Отправить</button>
+                        <span class="form-note">Поля, отмеченные *, обязательны</span>
+                    </div>
                 </form>
             </section>
 
         </main>
     </div>
 
-    <footer>
-        <p>© 2024 Allspark Database.</p>
-        <nav class="footer-nav">
-            <ul>
-                <li><a href="#">О вики</a></li>
-                <li><a href="#">Политика конфиденциальности</a></li>
-                <li><a href="#">Предупреждения</a></li>
-            </ul>
-        </nav>
+    <footer class="site-footer" id="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <a class="logo" href="index.html">Allspark Database</a>
+                <p>Неофициальная вики о Трансформерах.</p>
+            </div>
+
+            <nav class="footer-nav" aria-label="О проекте">
+                <ul>
+                    <li><a href="#">О вики</a></li>
+                    <li><a href="#">Политика конфиденциальности</a></li>
+                    <li><a href="#">Предупреждения</a></li>
+                </ul>
+            </nav>
+
+            <div class="footer-socials">
+                <a class="icon-link" href="#" aria-label="Discord"><img src="akar-icons_discord-fill.png" alt=""></a>
+                <a class="icon-link" href="#" aria-label="Bluesky"><img src="line-md_bluesky-filled.png" alt=""></a>
+                <a class="icon-link" href="#" aria-label="Twitter / X"><img src="line-md_twitter-x.png" alt=""></a>
+                <a class="icon-link" href="#" aria-label="Почта"><img src="mdi_gmail.png" alt=""></a>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© <span data-year>2024</span> Allspark Database.</p>
+                <p class="footer-legal">Transformers и связанные названия — торговые марки Hasbro. Проект неофициальный и не связан с Hasbro.</p>
+            </div>
+        </div>
     </footer>
 
+    <script src="script.js" defer></script>
 </body>
 </html>
