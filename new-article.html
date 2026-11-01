@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новая статья | Allspark Database</title>
+    <meta name="robots" content="noindex">
+    <meta name="theme-color" content="#0F2A44">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231B4F7A'/%3E%3Ctext x='16' y='23' font-size='20' font-weight='700' text-anchor='middle' fill='%2300E5FF' font-family='serif'%3EA%3C/text%3E%3C/svg%3E">
+
+    <script>
+        (function () {
+            var d = document.documentElement, t;
+            d.classList.add('js');
+            try { t = localStorage.getItem('theme'); } catch (e) {}
+            if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            d.dataset.theme = t;
+        })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Trirong:wght@700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=112325908', 'ym');
+
+        ym(112325908, 'init', {ssr:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/112325908" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+</head>
+<body data-page="editor">
+
+    <a class="skip-link" href="#main">К содержимому</a>
+
+    <div data-site-header></div>
+
+    <main id="main" class="page">
+        <h1 class="page-title" data-editor-title>Новая статья</h1>
+        <p class="page-lead">Расскажите о персонаже, комиксе, игрушке или событии. Статья сразу появится в каталоге и в поиске.</p>
+
+        <div class="notice" data-need-login hidden></div>
+
+        <form class="form" id="article-form" method="post" action="new-article.html" hidden>
+
+            <div class="form-field form-full">
+                <label for="a-title">Название *</label>
+                <input class="control" type="text" id="a-title" name="title" minlength="3" maxlength="80" required>
+            </div>
+
+            <div class="form-field">
+                <label for="a-category">Категория</label>
+                <select class="control" id="a-category" name="category"></select>
+            </div>
+
+            <div class="form-field">
+                <label for="a-image">Картинка (ссылка, необязательно)</label>
+                <input class="control" type="url" id="a-image" name="image" placeholder="https://...">
+            </div>
+
+            <div class="form-field form-full">
+                <div class="label-row">
+                    <label for="a-summary">Краткое описание *</label>
+                    <span class="counter" data-counter-for="a-summary">0 / 200</span>
+                </div>
+                <textarea class="control" id="a-summary" name="summary" rows="2" maxlength="200" required></textarea>
+            </div>
+
+            <div class="form-field form-full">
+                <div class="label-row">
+                    <label for="a-body">Текст статьи *</label>
+                    <span class="counter" data-counter-for="a-body">0 / 20000</span>
+                </div>
+                <textarea class="control is-tall" id="a-body" name="body" minlength="50" maxlength="20000" required></textarea>
+
+                <details class="help">
+                    <summary>Как оформлять текст</summary>
+<pre>## Заголовок раздела
+Обычный абзац. Можно выделить **жирным**.
+
+- пункт списка
+- ещё один пункт
+
+Пустая строка начинает новый абзац.</pre>
+                </details>
+            </div>
+
+            <div class="form-field form-full">
+                <label for="a-facts">Карточка справа (необязательно)</label>
+                <textarea class="control" id="a-facts" name="facts" rows="4" placeholder="Издатель: Skybound&#10;Год запуска: 2023"></textarea>
+                <span class="form-note">По одной строке в формате «Название: значение».</span>
+            </div>
+
+            <p class="form-error form-full" role="alert"></p>
+
+            <div class="form-actions form-full">
+                <button type="submit" class="btn btn-filled" data-submit>Опубликовать</button>
+                <a href="articles.html" class="btn btn-outline">Отмена</a>
+            </div>
+        </form>
+    </main>
+
+    <div data-site-footer></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
