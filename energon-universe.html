@@ -1,137 +1,795 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Energon Universe | Allspark Database</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Trirong:wght@700&family=Roboto&display=swap" rel="stylesheet">
-</head>
-<body>
+/* ================= ПЕРЕМЕННЫЕ ================= */
 
-    <header>
-        <div class="logo">Allspark Database</div>
-        <nav class="main-nav">
-            <ul>
-                <li><a href="index.html">ГЛАВНАЯ</a></li>
-                <li><a href="#">ВСЕЛЕННЫЕ</a></li>
-                <li><a href="#">ИГРУШКИ</a></li>
-                <li><a href="#">КОМИКСЫ</a></li>
-                <li>
-                    <a href="#" class="search-link">
-                        ПОИСК
-                        <img src="Group.png" alt="поиск" class="search-icon">
-                    </a>
-                </li>
-            </ul>
-        </nav>
-        <div class="header-icons">
-            <img src="material-symbols_login.png" alt="войти">
-            <img src="akar-icons_discord-fill.png" alt="discord">
-            <img src="line-md_bluesky-filled.png" alt="bluesky">
-            <img src="line-md_twitter-x.png" alt="twitter">
-            <img src="mdi_gmail.png" alt="gmail">
-        </div>
-    </header>
+:root {
+    /* Цвета */
+    --color-primary: #1a6fa8;
+    --color-primary-light: #2a7dc9;
+    --color-accent: #00E5FF;
+    --color-dark: #0F2A44;
+    --color-dark-light: #1B4F7A;
+    --color-text: #222;
+    --color-text-soft: #333;
+    --color-muted: #666;
+    --color-border: #ccc;
+    --color-bg: #fff;
+    --color-bg-soft: #f8f9fa;
 
-    <div class="page-wrapper">
+    /* Шрифты */
+    --font-main: 'Roboto', sans-serif;
+    --font-title: 'Trirong', serif;
 
-        <aside class="sidebar">
-            <div class="sidebar-section">
-                <h3 class="sidebar-title">КАТЕГОРИИ</h3>
-                <ul class="sidebar-list">
-                    <li class="sidebar-group">ВСЕЛЕННЫЕ</li>
-                    <li><a href="#">Фильмы</a></li>
-                    <li><a href="#">Мультсериалы</a></li>
-                    <li><a href="#">Комиксы</a></li>
-                    <li><a href="#">Игрушки</a></li>
-                    <li><a href="#">Видеоигры</a></li>
-                    <li><a href="#">Книги</a></li>
-                    <li><a href="#">Персонажи</a></li>
-                    <li><a href="#">Фракции</a></li>
-                    <li><a href="#">Локации</a></li>
-                    <li><a href="#">События</a></li>
-                </ul>
-            </div>
-            <div class="sidebar-section">
-                <h3 class="sidebar-title">ПОСЛЕДНИЕ<br>ИЗМЕНЕНИЯ</h3>
-                <ul class="sidebar-changes">
-                    <li><a href="energon-universe.html">Energon Universe</a> <span>(Сегодня)</span></li>
-                    <li><a href="#">Какая-то статья</a> <span>(Вчера)</span></li>
-                </ul>
-            </div>
-        </aside>
+    /* Размеры и отступы */
+    --header-h: 72px;
+    --sidebar-w: 220px;
+    --space-page: 40px;
+    --space: 16px;
+    --radius: 4px;
 
-        <main class="main-content article-page">
+    /* Градиент для шапки и подвала */
+    --gradient-bar: linear-gradient(180.88deg, var(--color-dark-light) 0.76%, var(--color-dark) 99.24%);
+}
 
-            <article class="article">
+/* ================= БАЗА ================= */
 
-                <h1 class="article-title">Energon Universe</h1>
+* {
+    box-sizing: border-box;
+}
 
-                <img src="energonuniverse.jpg" alt="Energon Universe" class="article-hero-image">
+body {
+    margin: 0;
+    font-family: var(--font-main);
+    background: var(--color-bg);
+    line-height: 1.6;
+}
 
-                <div class="article-content">
-                    <p><strong>Energon Universe</strong> (Вселенная Энергона) — это общая вселенная, в рамках которой Skybound Entertainment выпускает комиксы по лицензированным свойствам компании Hasbro. Запущенная в 2023 году, на данный момент она включает основную серию Transformers, серию комиксов G.I. Joe, серию M.A.S.K., а также оригинальную серию Void Rivals.</p>
-                    
-                    <h2>Задействованные франшизы</h2>
-                    <ul>
-                        <li>Void Rivals (оригинальная серия)</li>
-                        <li>Transformers</li>
-                        <li>G.I. Joe</li>
-                        <li>M.A.S.K.</li>
-                        <li>Rom the Space Knight</li>
-                        <li>Micronauts</li>
-                    </ul>
+a {
+    text-decoration: none;
+    color: inherit;
+}
 
-                    <h2>Ограниченные серии (Limited series)</h2>
-                    <ul>
-                        <li>Duke</li>
-                        <li>Cobra Commander</li>
-                        <li>Scarlett</li>
-                        <li>Destro</li>
-                    </ul>
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
 
-                    <h2>Специальные выпуски (Specials)</h2>
-                    <ul>
-                        <li>Energon Universe 2024 Special</li>
-                        <li>Energon Universe 2025 Special</li>
-                        <li>Energon Universe 2026 Special</li>
-                    </ul>
+img {
+    max-width: 100%;
+}
 
-                    <h2>Одноразовые выпуски (One-shots)</h2>
-                    <ul>
-                        <li>M.A.S.K. Origins</li>
-                        <li>ROM</li>
-                    </ul>
-                </div>
+/* ================= HEADER (grid) ================= */
 
-                <div class="infobox">
-                    <h3>Energon Universe</h3>
-                    <table>
-                        <tr><td>Издатель</td><td>Skybound Entertainment</td></tr>
-                        <tr><td>Год запуска</td><td>2023</td></tr>
-                        <tr><td>Статус</td><td>Активна</td></tr>
-                        <tr><td>Куратор</td><td>Роберт Киркман</td></tr>
-                    </table>
-                </div>
+header {
+    min-height: var(--header-h);
+    background: var(--gradient-bar);
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 30px;
+    padding: 0 var(--space-page);
+}
 
-            </article>
+.logo {
+    font-family: var(--font-title);
+    font-weight: 700;
+    font-size: 28px;
+    white-space: nowrap;
+    background: linear-gradient(90deg, #00E5FF 0%, #7C4DFF 50%, #00FF9D 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
 
-        </main>
-    </div>
+.main-nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
+}
 
-    <footer>
-        <div class="footer-left">
-            <p>© 2024 Allspark Database.</p>
-        </div>
-        <nav class="footer-nav">
-            <ul>
-                <li><a href="#">О вики</a></li>
-                <li><a href="#">Политика конфиденциальности</a></li>
-                <li><a href="#">Предупреждения</a></li>
-            </ul>
-        </nav>
-    </footer>
+.main-nav ul li a {
+    font-size: 18px;
+    color: #fff;
+    white-space: nowrap;
+    position: relative;
+}
 
-</body>
-</html>
+.main-nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-accent);
+    transition: width 0.3s ease;
+}
+
+.main-nav ul li a:hover::after {
+    width: 100%;
+}
+
+.search-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.search-link:hover .search-icon {
+    animation: pulse 1s infinite;
+}
+
+.search-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: var(--space);
+}
+
+.header-icons img {
+    width: 27px;
+    height: 27px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.header-icons img:hover {
+    transform: scale(1.15) rotate(5deg);
+}
+
+/* ================= LAYOUT (grid) ================= */
+
+.page-wrapper {
+    display: grid;
+    grid-template-columns: var(--sidebar-w) minmax(0, 1fr);
+    min-height: calc(100vh - 2 * var(--header-h));
+}
+
+.sidebar {
+    border-right: 1px solid var(--color-border);
+    padding: var(--space) 12px;
+}
+
+.sidebar-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #000;
+}
+
+.sidebar-section {
+    margin-bottom: 24px;
+}
+
+.sidebar-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.sidebar-group {
+    font-weight: 700;
+    font-size: 13px;
+    margin: 4px 0 2px;
+}
+
+.sidebar-list li a {
+    font-size: 13px;
+    color: var(--color-text-soft);
+    line-height: 1.8;
+}
+
+.sidebar-list li a:hover {
+    text-decoration: underline;
+    color: var(--color-primary);
+}
+
+.sidebar-changes {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.sidebar-changes li {
+    font-size: 13px;
+}
+
+.sidebar-changes li a {
+    color: var(--color-primary);
+}
+
+.sidebar-changes li a:hover {
+    text-decoration: underline;
+}
+
+.sidebar-changes span {
+    color: var(--color-muted);
+    font-size: 12px;
+}
+
+/* ================= MAIN CONTENT ================= */
+
+.main-content {
+    padding: var(--space) 20px;
+    min-width: 0;
+}
+
+/* ================= HERO ================= */
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 420px;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    border-radius: 2px;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.hero-optimus-back {
+    position: absolute;
+    width: 38%;
+    bottom: 0;
+    left: 2%;
+    z-index: 2;
+    opacity: 0.5;
+}
+
+.hero-rectangle {
+    position: absolute;
+    width: 42%;
+    bottom: 0;
+    left: 0;
+    z-index: 3;
+}
+
+.hero-optimus-front {
+    position: absolute;
+    width: 42%;
+    top: 10px;
+    left: 0;
+    z-index: 4;
+}
+
+.hero-text {
+    position: absolute;
+    top: 0; right: 0;
+    width: 55%;
+    height: 100%;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px var(--space-page);
+    gap: var(--space);
+    animation: fadeInText 1s ease-out;
+}
+
+.hero-logo-text {
+    font-family: var(--font-title);
+    font-weight: 700;
+    font-size: 32px;
+    color: var(--color-primary);
+    letter-spacing: 3px;
+}
+
+.hero-text p {
+    margin: 0;
+    font-size: 15px;
+    color: var(--color-text-soft);
+    line-height: 1.7;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+
+/* ================= КНОПКИ ================= */
+
+.btn {
+    min-width: 160px;
+    height: 50px;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-family: var(--font-main);
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-filled {
+    background: var(--color-primary-light);
+    color: #fff;
+    border: 1px solid var(--color-primary-light);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--color-text-soft);
+    border: 1px solid #555;
+}
+
+.btn:hover {
+    opacity: 0.9;
+    transform: translateY(-3px);
+}
+
+/* ================= POPULAR (grid) ================= */
+
+.popular,
+.contact {
+    margin-top: 32px;
+}
+
+.popular-title {
+    font-weight: 700;
+    font-size: 20px;
+    color: #1a1a1a;
+    margin: 0 0 var(--space) 0;
+    text-transform: uppercase;
+}
+
+/* Колонки сами подстраиваются под ширину экрана */
+.popular-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space);
+}
+
+.popular-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.card-img-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: var(--radius);
+}
+
+.card-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.popular-card:hover .card-img-wrap img {
+    transform: scale(1.08);
+}
+
+.card-arrow {
+    position: absolute;
+    bottom: 8px;
+    right: 10px;
+    font-size: 22px;
+    color: #fff;
+    background: rgba(0,0,0,0.4);
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius);
+    transition: background 0.3s, transform 0.3s;
+}
+
+.card-arrow:hover {
+    background: rgba(0,0,0,0.7);
+    transform: translateX(4px);
+}
+
+.card-name {
+    font-weight: 700;
+    font-size: 14px;
+    color: #1a1a1a;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ================= ФОРМЫ ================= */
+
+input,
+select,
+textarea,
+button {
+    font-family: var(--font-main);
+    font-size: 15px;
+}
+
+/* Форма «Предложить статью»: 2 колонки */
+.form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space);
+    padding: 24px;
+    background: var(--color-bg-soft);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-full {
+    grid-column: 1 / -1;
+}
+
+.form label {
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--color-text-soft);
+}
+
+.form input[type="text"],
+.form input[type="email"],
+.form select,
+.form textarea,
+.search-form input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    background: #fff;
+    color: var(--color-text);
+}
+
+.form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.form input:focus,
+.form select:focus,
+.form textarea:focus,
+.search-form input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(26, 111, 168, 0.2);
+}
+
+.form-check {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.form-check input {
+    width: 18px;
+    height: 18px;
+}
+
+.form-check label {
+    font-weight: 400;
+}
+
+.form .btn {
+    justify-self: start;
+}
+
+/* Поиск в сайдбаре */
+.search-form {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 6px;
+    margin-bottom: 24px;
+}
+
+.search-form input {
+    padding: 7px 10px;
+    font-size: 13px;
+    min-width: 0;
+}
+
+.search-form button {
+    padding: 0 12px;
+    font-size: 13px;
+    color: #fff;
+    background: var(--color-primary-light);
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+}
+
+.search-form button:hover {
+    opacity: 0.9;
+}
+
+/* ================= ARTICLE PAGE ================= */
+
+.article-page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px var(--space-page) 40px;
+}
+
+.article {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: var(--space-page);
+}
+
+.article-title {
+    font-family: var(--font-title);
+    font-size: 42px;
+    line-height: 1.1;
+    color: var(--color-primary);
+    margin: 0 0 10px 0;
+    grid-column: 1 / -1;
+}
+
+.article-meta {
+    color: #555;
+    font-size: 15px;
+    margin-bottom: 20px;
+    grid-column: 1 / -1;
+}
+
+.article-hero-image {
+    width: 100%;
+    max-height: 420px;
+    object-fit: cover;
+    border-radius: 6px;
+    grid-column: 1 / -1;
+    margin-bottom: 30px;
+}
+
+.article-content {
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--color-text);
+}
+
+.article-content h2 {
+    font-size: 26px;
+    color: var(--color-primary);
+    margin: 35px 0 var(--space) 0;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 8px;
+}
+
+.article-content ul {
+    padding-left: 20px;
+    margin: var(--space) 0;
+    list-style: disc;
+}
+
+.article-content li {
+    margin-bottom: 10px;
+}
+
+.infobox {
+    background: var(--color-bg-soft);
+    border: 2px solid var(--color-primary);
+    border-radius: 6px;
+    padding: 18px;
+    height: fit-content;
+    position: sticky;
+    top: 20px;
+}
+
+.infobox h3 {
+    margin: 0 0 var(--space) 0;
+    text-align: center;
+    color: var(--color-primary);
+    font-size: 21px;
+}
+
+.infobox table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+}
+
+.infobox td {
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.infobox td:first-child {
+    font-weight: 700;
+    color: var(--color-text-soft);
+    width: 45%;
+}
+
+/* ================= FOOTER (grid) ================= */
+
+footer {
+    min-height: var(--header-h);
+    background: var(--gradient-bar);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: var(--space);
+    padding: 12px var(--space-page);
+}
+
+.footer-left p {
+    margin: 0;
+    font-size: 14px;
+    color: #fff;
+}
+
+.footer-nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+}
+
+.footer-nav ul li a {
+    font-size: 13px;
+    color: #E2E8F0;
+    line-height: 1.6;
+}
+
+.footer-nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* ================= АНИМАЦИИ ================= */
+
+@keyframes fadeInText {
+    from { opacity: 0; transform: translateY(15px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* ================= АДАПТИВНОСТЬ ================= */
+
+/* Планшет */
+@media (max-width: 900px) {
+    :root {
+        --space-page: 20px;
+    }
+
+    /* Шапка в одну колонку по центру */
+    header {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        gap: 10px;
+        padding: 12px var(--space-page);
+    }
+
+    .main-nav ul {
+        justify-content: center;
+    }
+
+    /* Сайдбар уходит наверх */
+    .page-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        border-right: none;
+        border-bottom: 1px solid var(--color-border);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: var(--space);
+    }
+
+    .search-form {
+        grid-column: 1 / -1;
+    }
+
+    .sidebar-section {
+        margin-bottom: 0;
+    }
+
+    /* Статья */
+    .article {
+        grid-template-columns: 1fr;
+    }
+
+    .infobox {
+        position: static;
+    }
+
+    .article-title {
+        font-size: 32px;
+    }
+}
+
+/* Телефон */
+@media (max-width: 600px) {
+    .sidebar {
+        grid-template-columns: 1fr;
+        row-gap: var(--space);
+    }
+
+    .main-content {
+        padding: var(--space) 12px;
+    }
+
+    /* Hero: картинка-фон, текст обычным потоком */
+    .hero {
+        height: auto;
+    }
+
+    .hero-optimus-back,
+    .hero-rectangle,
+    .hero-optimus-front {
+        display: none;
+    }
+
+    .hero-text {
+        position: relative;
+        width: 100%;
+        height: auto;
+        padding: 24px var(--space);
+        background: rgba(255, 255, 255, 0.85);
+    }
+
+    .hero-text br {
+        display: none;
+    }
+
+    .hero-logo-text {
+        font-size: 24px;
+        letter-spacing: 1px;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+    }
+
+    /* Форма в одну колонку */
+    .form {
+        grid-template-columns: 1fr;
+        padding: var(--space);
+    }
+
+    .form .btn {
+        justify-self: stretch;
+    }
+
+    .article-page {
+        padding: 16px var(--space) 30px;
+    }
+
+    .article-content {
+        font-size: 16px;
+    }
+
+    /* Подвал по центру */
+    footer {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .footer-nav ul {
+        align-items: center;
+    }
+}
