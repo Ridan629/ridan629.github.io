@@ -1,35 +1,24 @@
-/* ================= ПЕРЕМЕННЫЕ ================= */
+/* ========== ПЕРЕМЕННЫЕ ========== */
 
 :root {
-    /* Цвета */
     --color-primary: #1a6fa8;
-    --color-primary-light: #2a7dc9;
+    --color-button: #2a7dc9;
     --color-accent: #00E5FF;
-    --color-dark: #0F2A44;
-    --color-dark-light: #1B4F7A;
-    --color-text: #222;
-    --color-text-soft: #333;
-    --color-muted: #666;
+    --color-text: #333;
     --color-border: #ccc;
-    --color-bg: #fff;
     --color-bg-soft: #f8f9fa;
 
-    /* Шрифты */
     --font-main: 'Roboto', sans-serif;
     --font-title: 'Trirong', serif;
 
-    /* Размеры и отступы */
-    --header-h: 72px;
-    --sidebar-w: 220px;
-    --space-page: 40px;
-    --space: 16px;
+    --gap: 16px;
+    --side-padding: 40px;
     --radius: 4px;
 
-    /* Градиент для шапки и подвала */
-    --gradient-bar: linear-gradient(180.88deg, var(--color-dark-light) 0.76%, var(--color-dark) 99.24%);
+    --gradient-bar: linear-gradient(180deg, #1B4F7A, #0F2A44);
 }
 
-/* ================= БАЗА ================= */
+/* ========== БАЗА ========== */
 
 * {
     box-sizing: border-box;
@@ -38,7 +27,6 @@
 body {
     margin: 0;
     font-family: var(--font-main);
-    background: var(--color-bg);
     line-height: 1.6;
 }
 
@@ -57,24 +45,23 @@ img {
     max-width: 100%;
 }
 
-/* ================= HEADER (grid) ================= */
+/* ========== ШАПКА (grid) ========== */
 
 header {
-    min-height: var(--header-h);
+    min-height: 72px;
     background: var(--gradient-bar);
     display: grid;
     grid-template-columns: auto 1fr auto;
     align-items: center;
     gap: 30px;
-    padding: 0 var(--space-page);
+    padding: 0 var(--side-padding);
 }
 
 .logo {
     font-family: var(--font-title);
-    font-weight: 700;
     font-size: 28px;
     white-space: nowrap;
-    background: linear-gradient(90deg, #00E5FF 0%, #7C4DFF 50%, #00FF9D 100%);
+    background: linear-gradient(90deg, #00E5FF, #7C4DFF, #00FF9D);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -87,25 +74,24 @@ header {
     gap: 20px;
 }
 
-.main-nav ul li a {
+.main-nav a {
     font-size: 18px;
     color: #fff;
-    white-space: nowrap;
     position: relative;
 }
 
-.main-nav ul li a::after {
+.main-nav a::after {
     content: '';
     position: absolute;
     left: 0;
     bottom: -4px;
     width: 0;
     height: 2px;
-    background-color: var(--color-accent);
-    transition: width 0.3s ease;
+    background: var(--color-accent);
+    transition: width 0.3s;
 }
 
-.main-nav ul li a:hover::after {
+.main-nav a:hover::after {
     width: 100%;
 }
 
@@ -115,124 +101,107 @@ header {
     gap: 6px;
 }
 
-.search-link:hover .search-icon {
-    animation: pulse 1s infinite;
-}
-
 .search-icon {
     width: 20px;
     height: 20px;
 }
 
+.search-link:hover .search-icon {
+    animation: pulse 1s infinite;
+}
+
 .header-icons {
     display: flex;
-    align-items: center;
-    gap: var(--space);
+    gap: var(--gap);
 }
 
 .header-icons img {
     width: 27px;
     height: 27px;
     cursor: pointer;
-    transition: transform 0.2s ease;
+    transition: transform 0.2s;
 }
 
 .header-icons img:hover {
     transform: scale(1.15) rotate(5deg);
 }
 
-/* ================= LAYOUT (grid) ================= */
+/* ========== КАРКАС СТРАНИЦЫ (grid) ========== */
 
 .page-wrapper {
     display: grid;
-    grid-template-columns: var(--sidebar-w) minmax(0, 1fr);
-    min-height: calc(100vh - 2 * var(--header-h));
+    grid-template-columns: 220px 1fr;
+    min-height: calc(100vh - 144px);
 }
+
+.main-content {
+    padding: var(--gap) 20px;
+    min-width: 0;
+}
+
+/* ========== САЙДБАР ========== */
 
 .sidebar {
     border-right: 1px solid var(--color-border);
-    padding: var(--space) 12px;
-}
-
-.sidebar-title {
-    font-size: 15px;
-    font-weight: 700;
-    margin: 0 0 8px 0;
-    padding-bottom: 6px;
-    border-bottom: 2px solid #000;
+    padding: var(--gap) 12px;
 }
 
 .sidebar-section {
     margin-bottom: 24px;
 }
 
-.sidebar-list {
+.sidebar-title {
+    font-size: 15px;
+    margin: 0 0 8px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #000;
+}
+
+.sidebar-list,
+.sidebar-changes {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 4px;
 }
 
 .sidebar-group {
     font-weight: 700;
     font-size: 13px;
-    margin: 4px 0 2px;
 }
 
-.sidebar-list li a {
-    font-size: 13px;
-    color: var(--color-text-soft);
-    line-height: 1.8;
-}
-
-.sidebar-list li a:hover {
-    text-decoration: underline;
-    color: var(--color-primary);
-}
-
-.sidebar-changes {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-
+.sidebar-list a,
 .sidebar-changes li {
     font-size: 13px;
 }
 
-.sidebar-changes li a {
+.sidebar-list a:hover,
+.sidebar-changes a:hover {
+    text-decoration: underline;
     color: var(--color-primary);
 }
 
-.sidebar-changes li a:hover {
-    text-decoration: underline;
+.sidebar-changes a {
+    color: var(--color-primary);
 }
 
 .sidebar-changes span {
-    color: var(--color-muted);
+    color: #666;
     font-size: 12px;
 }
 
-/* ================= MAIN CONTENT ================= */
-
-.main-content {
-    padding: var(--space) 20px;
-    min-width: 0;
-}
-
-/* ================= HERO ================= */
+/* ========== HERO ========== */
 
 .hero {
     position: relative;
-    width: 100%;
     height: 420px;
     overflow: hidden;
     border: 1px solid var(--color-border);
-    border-radius: 2px;
 }
 
 .hero-bg {
     position: absolute;
-    top: 0; left: 0;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -266,21 +235,21 @@ header {
 
 .hero-text {
     position: absolute;
-    top: 0; right: 0;
+    top: 0;
+    right: 0;
     width: 55%;
     height: 100%;
     z-index: 5;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 30px var(--space-page);
-    gap: var(--space);
+    gap: var(--gap);
+    padding: 30px var(--side-padding);
     animation: fadeInText 1s ease-out;
 }
 
 .hero-logo-text {
     font-family: var(--font-title);
-    font-weight: 700;
     font-size: 32px;
     color: var(--color-primary);
     letter-spacing: 3px;
@@ -289,18 +258,16 @@ header {
 .hero-text p {
     margin: 0;
     font-size: 15px;
-    color: var(--color-text-soft);
-    line-height: 1.7;
+    color: var(--color-text);
 }
 
 .hero-buttons {
     display: flex;
-    gap: 12px;
     flex-wrap: wrap;
-    margin-top: 8px;
+    gap: 12px;
 }
 
-/* ================= КНОПКИ ================= */
+/* ========== КНОПКИ ========== */
 
 .btn {
     min-width: 160px;
@@ -313,18 +280,17 @@ header {
     font-family: var(--font-main);
     border-radius: var(--radius);
     cursor: pointer;
-    transition: all 0.2s;
+    transition: 0.2s;
 }
 
 .btn-filled {
-    background: var(--color-primary-light);
+    background: var(--color-button);
     color: #fff;
-    border: 1px solid var(--color-primary-light);
+    border: 1px solid var(--color-button);
 }
 
 .btn-outline {
-    background: transparent;
-    color: var(--color-text-soft);
+    color: var(--color-text);
     border: 1px solid #555;
 }
 
@@ -333,26 +299,23 @@ header {
     transform: translateY(-3px);
 }
 
-/* ================= POPULAR (grid) ================= */
+/* ========== ПОПУЛЯРНОЕ (grid) ========== */
 
 .popular,
 .contact {
     margin-top: 32px;
 }
 
-.popular-title {
-    font-weight: 700;
+.section-title {
     font-size: 20px;
-    color: #1a1a1a;
-    margin: 0 0 var(--space) 0;
-    text-transform: uppercase;
+    margin: 0 0 var(--gap);
 }
 
 /* Колонки сами подстраиваются под ширину экрана */
 .popular-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: var(--space);
+    gap: var(--gap);
 }
 
 .popular-card {
@@ -363,7 +326,6 @@ header {
 
 .card-img-wrap {
     position: relative;
-    width: 100%;
     aspect-ratio: 4 / 3;
     overflow: hidden;
     border-radius: var(--radius);
@@ -374,10 +336,10 @@ header {
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.4s ease;
+    transition: transform 0.4s;
 }
 
-.popular-card:hover .card-img-wrap img {
+.popular-card:hover img {
     transform: scale(1.08);
 }
 
@@ -385,32 +347,29 @@ header {
     position: absolute;
     bottom: 8px;
     right: 10px;
-    font-size: 22px;
-    color: #fff;
-    background: rgba(0,0,0,0.4);
     width: 36px;
     height: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 22px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.4);
     border-radius: var(--radius);
-    transition: background 0.3s, transform 0.3s;
+    transition: 0.3s;
 }
 
 .card-arrow:hover {
-    background: rgba(0,0,0,0.7);
+    background: rgba(0, 0, 0, 0.7);
     transform: translateX(4px);
 }
 
 .card-name {
     font-weight: 700;
     font-size: 14px;
-    color: #1a1a1a;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
 }
 
-/* ================= ФОРМЫ ================= */
+/* ========== ФОРМЫ ========== */
 
 input,
 select,
@@ -420,15 +379,19 @@ button {
     font-size: 15px;
 }
 
-/* Форма «Предложить статью»: 2 колонки */
+/* Форма в две колонки */
 .form {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--space);
+    gap: var(--gap);
     padding: 24px;
     background: var(--color-bg-soft);
     border: 1px solid var(--color-border);
     border-radius: var(--radius);
+}
+
+.form-full {
+    grid-column: 1 / -1;
 }
 
 .form-field {
@@ -437,14 +400,9 @@ button {
     gap: 6px;
 }
 
-.form-full {
-    grid-column: 1 / -1;
-}
-
 .form label {
     font-weight: 700;
     font-size: 14px;
-    color: var(--color-text-soft);
 }
 
 .form input[type="text"],
@@ -456,8 +414,6 @@ button {
     padding: 10px 12px;
     border: 1px solid var(--color-border);
     border-radius: var(--radius);
-    background: #fff;
-    color: var(--color-text);
 }
 
 .form textarea {
@@ -471,19 +427,12 @@ button {
 .search-form input:focus {
     outline: none;
     border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px rgba(26, 111, 168, 0.2);
 }
 
 .form-check {
-    flex-direction: row;
+    display: flex;
     align-items: center;
     gap: 8px;
-    font-size: 14px;
-}
-
-.form-check input {
-    width: 18px;
-    height: 18px;
 }
 
 .form-check label {
@@ -512,73 +461,90 @@ button {
     padding: 0 12px;
     font-size: 13px;
     color: #fff;
-    background: var(--color-primary-light);
+    background: var(--color-button);
     border: none;
     border-radius: var(--radius);
     cursor: pointer;
 }
 
-.search-form button:hover {
-    opacity: 0.9;
+/* ========== СТРАНИЦА «СПАСИБО» ========== */
+
+.thanks {
+    min-height: calc(100vh - 144px);
+    display: grid;
+    place-content: center;
+    justify-items: center;
+    gap: var(--gap);
+    padding: 40px var(--side-padding);
+    text-align: center;
 }
 
-/* ================= ARTICLE PAGE ================= */
+.thanks h1 {
+    margin: 0;
+    font-family: var(--font-title);
+    font-size: 42px;
+    color: var(--color-primary);
+}
+
+.thanks p {
+    margin: 0;
+    max-width: 500px;
+}
+
+.thanks-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+/* ========== СТАТЬЯ (grid) ========== */
 
 .article-page {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 20px var(--space-page) 40px;
+    padding: 20px var(--side-padding) 40px;
 }
 
 .article {
     display: grid;
     grid-template-columns: 1fr 280px;
-    gap: var(--space-page);
+    gap: var(--side-padding);
 }
 
 .article-title {
+    grid-column: 1 / -1;
     font-family: var(--font-title);
     font-size: 42px;
     line-height: 1.1;
     color: var(--color-primary);
-    margin: 0 0 10px 0;
-    grid-column: 1 / -1;
-}
-
-.article-meta {
-    color: #555;
-    font-size: 15px;
-    margin-bottom: 20px;
-    grid-column: 1 / -1;
+    margin: 0;
 }
 
 .article-hero-image {
+    grid-column: 1 / -1;
     width: 100%;
     max-height: 420px;
     object-fit: cover;
     border-radius: 6px;
-    grid-column: 1 / -1;
-    margin-bottom: 30px;
 }
 
 .article-content {
     font-size: 17px;
     line-height: 1.75;
-    color: var(--color-text);
 }
 
 .article-content h2 {
     font-size: 26px;
     color: var(--color-primary);
-    margin: 35px 0 var(--space) 0;
-    border-bottom: 2px solid #e0e0e0;
+    margin: 35px 0 var(--gap);
     padding-bottom: 8px;
+    border-bottom: 2px solid #e0e0e0;
 }
 
 .article-content ul {
-    padding-left: 20px;
-    margin: var(--space) 0;
     list-style: disc;
+    padding-left: 20px;
 }
 
 .article-content li {
@@ -596,7 +562,7 @@ button {
 }
 
 .infobox h3 {
-    margin: 0 0 var(--space) 0;
+    margin: 0 0 var(--gap);
     text-align: center;
     color: var(--color-primary);
     font-size: 21px;
@@ -605,7 +571,6 @@ button {
 .infobox table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 15px;
 }
 
 .infobox td {
@@ -615,46 +580,43 @@ button {
 
 .infobox td:first-child {
     font-weight: 700;
-    color: var(--color-text-soft);
     width: 45%;
 }
 
-/* ================= FOOTER (grid) ================= */
+/* ========== ПОДВАЛ (grid) ========== */
 
 footer {
-    min-height: var(--header-h);
+    min-height: 72px;
     background: var(--gradient-bar);
     display: grid;
     grid-template-columns: 1fr auto;
     align-items: center;
-    gap: var(--space);
-    padding: 12px var(--space-page);
+    gap: var(--gap);
+    padding: 12px var(--side-padding);
+    color: #fff;
 }
 
-.footer-left p {
+footer p {
     margin: 0;
     font-size: 14px;
-    color: #fff;
 }
 
 .footer-nav ul {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 2px;
 }
 
-.footer-nav ul li a {
+.footer-nav a {
     font-size: 13px;
     color: #E2E8F0;
-    line-height: 1.6;
 }
 
-.footer-nav ul li a:hover {
+.footer-nav a:hover {
     text-decoration: underline;
 }
 
-/* ================= АНИМАЦИИ ================= */
+/* ========== АНИМАЦИИ ========== */
 
 @keyframes fadeInText {
     from { opacity: 0; transform: translateY(15px); }
@@ -662,25 +624,22 @@ footer {
 }
 
 @keyframes pulse {
-    0%   { transform: scale(1); }
-    50%  { transform: scale(1.2); }
-    100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
 }
 
-/* ================= АДАПТИВНОСТЬ ================= */
+/* ========== АДАПТИВНОСТЬ ========== */
 
 /* Планшет */
 @media (max-width: 900px) {
     :root {
-        --space-page: 20px;
+        --side-padding: 20px;
     }
 
-    /* Шапка в одну колонку по центру */
     header {
         grid-template-columns: 1fr;
         justify-items: center;
         gap: 10px;
-        padding: 12px var(--space-page);
+        padding: 12px var(--side-padding);
     }
 
     .main-nav ul {
@@ -697,18 +656,19 @@ footer {
         border-bottom: 1px solid var(--color-border);
         display: grid;
         grid-template-columns: 1fr 1fr;
-        column-gap: var(--space);
+        gap: var(--gap);
     }
 
     .search-form {
         grid-column: 1 / -1;
+        margin-bottom: 0;
     }
 
     .sidebar-section {
         margin-bottom: 0;
     }
 
-    /* Статья */
+    /* Статья в одну колонку */
     .article {
         grid-template-columns: 1fr;
     }
@@ -717,7 +677,8 @@ footer {
         position: static;
     }
 
-    .article-title {
+    .article-title,
+    .thanks h1 {
         font-size: 32px;
     }
 }
@@ -726,14 +687,13 @@ footer {
 @media (max-width: 600px) {
     .sidebar {
         grid-template-columns: 1fr;
-        row-gap: var(--space);
     }
 
     .main-content {
-        padding: var(--space) 12px;
+        padding: var(--gap) 12px;
     }
 
-    /* Hero: картинка-фон, текст обычным потоком */
+    /* Hero: убираем картинки Оптимуса, текст идёт обычным потоком */
     .hero {
         height: auto;
     }
@@ -748,12 +708,8 @@ footer {
         position: relative;
         width: 100%;
         height: auto;
-        padding: 24px var(--space);
+        padding: 24px var(--gap);
         background: rgba(255, 255, 255, 0.85);
-    }
-
-    .hero-text br {
-        display: none;
     }
 
     .hero-logo-text {
@@ -768,19 +724,11 @@ footer {
     /* Форма в одну колонку */
     .form {
         grid-template-columns: 1fr;
-        padding: var(--space);
+        padding: var(--gap);
     }
 
     .form .btn {
         justify-self: stretch;
-    }
-
-    .article-page {
-        padding: 16px var(--space) 30px;
-    }
-
-    .article-content {
-        font-size: 16px;
     }
 
     /* Подвал по центру */
