@@ -40,86 +40,23 @@
     <noscript><div><img src="https://mc.yandex.ru/watch/112325908" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
 </head>
-<body>
+<body data-page="article-static">
 
     <div class="read-progress" aria-hidden="true"></div>
     <a class="skip-link" href="#main">К содержимому</a>
 
-    <header class="site-header">
-        <div class="header-inner">
-            <a class="logo" href="index.html">Allspark Database</a>
-
-            <nav class="main-nav" id="main-nav" aria-label="Основное меню">
-                <ul>
-                    <li><a href="index.html">ГЛАВНАЯ</a></li>
-                    <li><a href="#">ВСЕЛЕННЫЕ</a></li>
-                    <li><a href="#">ИГРУШКИ</a></li>
-                    <li><a href="#">КОМИКСЫ</a></li>
-                    <li>
-                        <button type="button" class="nav-search" data-search-open>
-                            ПОИСК
-                            <img src="Group.png" alt="" class="search-icon">
-                        </button>
-                    </li>
-                </ul>
-            </nav>
-
-            <div class="header-actions">
-                <div class="socials">
-                    <a class="icon-link" href="#" aria-label="Discord"><img src="akar-icons_discord-fill.png" alt=""></a>
-                    <a class="icon-link" href="#" aria-label="Bluesky"><img src="line-md_bluesky-filled.png" alt=""></a>
-                    <a class="icon-link" href="#" aria-label="Twitter / X"><img src="line-md_twitter-x.png" alt=""></a>
-                    <a class="icon-link" href="#" aria-label="Почта"><img src="mdi_gmail.png" alt=""></a>
-                </div>
-                <a class="icon-link" href="#" aria-label="Войти"><img src="material-symbols_login.png" alt=""></a>
-                <button type="button" class="icon-btn theme-toggle" data-theme-toggle aria-label="Переключить тему"></button>
-                <button type="button" class="icon-btn nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="main-nav" aria-label="Открыть меню">
-                    <span class="burger" aria-hidden="true"></span>
-                </button>
-            </div>
-        </div>
-    </header>
+    <div data-site-header></div>
 
     <div class="layout">
 
-        <aside class="sidebar">
-            <div class="sidebar-inner">
-                <nav class="sidebar-section" aria-label="Категории">
-                    <h2 class="sidebar-title">КАТЕГОРИИ</h2>
-                    <p class="sidebar-group">ВСЕЛЕННЫЕ</p>
-                    <ul class="sidebar-list">
-                        <li><a href="#">Фильмы</a></li>
-                        <li><a href="#">Мультсериалы</a></li>
-                        <li><a href="#">Комиксы</a></li>
-                        <li><a href="#">Игрушки</a></li>
-                        <li><a href="#">Видеоигры</a></li>
-                        <li><a href="#">Книги</a></li>
-                    </ul>
-                    <p class="sidebar-group">ЭНЦИКЛОПЕДИЯ</p>
-                    <ul class="sidebar-list">
-                        <li><a href="#">Персонажи</a></li>
-                        <li><a href="#">Фракции</a></li>
-                        <li><a href="#">Локации</a></li>
-                        <li><a href="#">События</a></li>
-                    </ul>
-                </nav>
-
-                <section class="sidebar-section">
-                    <h2 class="sidebar-title">ПОСЛЕДНИЕ<br>ИЗМЕНЕНИЯ</h2>
-                    <ul class="sidebar-changes">
-                        <li><a href="energon-universe.html" aria-current="page">Energon Universe</a> <span class="when">Сегодня</span></li>
-                        <li><a href="#">Какая-то статья</a> <span class="when">Вчера</span></li>
-                    </ul>
-                </section>
-            </div>
-        </aside>
+        <div data-site-sidebar></div>
 
         <main id="main" class="content article-page">
 
             <nav class="breadcrumbs" aria-label="Хлебные крошки">
                 <ol>
                     <li><a href="index.html">Главная</a></li>
-                    <li><a href="#">Комиксы</a></li>
+                    <li><a href="articles.html?cat=Комиксы">Комиксы</a></li>
                     <li aria-current="page">Energon Universe</li>
                 </ol>
             </nav>
@@ -190,45 +127,20 @@
 
                 <footer class="article-footer">
                     <span class="article-footer-label">Категории:</span>
-                    <a class="tag-link" href="#">Комиксы</a>
+                    <a class="tag-link" href="articles.html?cat=Комиксы">Комиксы</a>
                     <a class="tag-link" href="#">Вселенные</a>
                     <a class="tag-link" href="#">Hasbro</a>
                 </footer>
 
             </article>
 
+            <section class="comments" data-comments="energon-universe"></section>
+
         </main>
     </div>
 
-    <footer class="site-footer" id="footer">
-        <div class="footer-inner">
-            <div class="footer-brand">
-                <a class="logo" href="index.html">Allspark Database</a>
-                <p>Неофициальная вики о Трансформерах.</p>
-            </div>
+    <div data-site-footer></div>
 
-            <nav class="footer-nav" aria-label="О проекте">
-                <ul>
-                    <li><a href="#">О вики</a></li>
-                    <li><a href="#">Политика конфиденциальности</a></li>
-                    <li><a href="#">Предупреждения</a></li>
-                </ul>
-            </nav>
-
-            <div class="footer-socials">
-                <a class="icon-link" href="#" aria-label="Discord"><img src="akar-icons_discord-fill.png" alt=""></a>
-                <a class="icon-link" href="#" aria-label="Bluesky"><img src="line-md_bluesky-filled.png" alt=""></a>
-                <a class="icon-link" href="#" aria-label="Twitter / X"><img src="line-md_twitter-x.png" alt=""></a>
-                <a class="icon-link" href="#" aria-label="Почта"><img src="mdi_gmail.png" alt=""></a>
-            </div>
-
-            <div class="footer-bottom">
-                <p>© <span data-year>2024</span> Allspark Database.</p>
-                <p class="footer-legal">Transformers и связанные названия — торговые марки Hasbro. Проект неофициальный и не связан с Hasbro.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="script.js" defer></script>
+    <script src="script.js"></script>
 </body>
 </html>
